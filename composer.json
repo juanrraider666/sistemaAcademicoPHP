@@ -1,0 +1,14 @@
+{
+    "name": "jdiaz/sistema-academico-php",
+    "description": "sistema academico con php",
+    "require": {
+        "swiftmailer/swiftmailer": "^6.2"
+    },
+    "authors": [
+        {
+            "name": "jdiaz",
+            "email": "jdiaz@optimeconsulting.com"
+        }
+    ],
+    "minimum-stability": "beta"
+}

@@ -1,0 +1,290 @@
+
+/*@charset "utf-8";*/
+/* CSS Document */
+
+
+/*Locale Specific Settings*/
+
+
+
+
+
+
+/*--fonts--*/
+@font-face{
+    font-family: 'Knockout-HTF68-FullFeatherwt';
+    src: url(../fonts/Knockout-HTF68-FullFeatherwt-Regular.eot);
+    src: url(../fonts/Knockout-HTF68-FullFeatherwt-Regular.woff?#iefix) format('embedded-opentype'),
+    url('../fonts/Knockout-HTF68-FullFeatherwt-Regular.woff') format('woff')
+;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'proxima-nova';
+    src: url(../fonts/ProximaNova-Regular.eot);
+    src: url(../fonts/ProximaNova-Regular.woff?#iefix) format('embedded-opentype'),
+    url('../fonts/ProximaNova-Regular.woff') format('woff')
+;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MetricWeb_bold';
+    src: url(../fonts/MetricWeb-Bold.eot);
+    src: url(../fonts/MetricWeb-Bold.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Bold.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MetricWeb_light';
+    src: url(../fonts/MetricWeb-Light.eot);
+    src: url(../fonts/MetricWeb-Light.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Light.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MetricWeb_medium';
+    src: url(../fonts/MetricWeb-Medium.eot);
+    src: url(../fonts/MetricWeb-Medium.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Medium.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MetricWeb_regular';
+    src: url(../fonts/MetricWeb-Regular.eot);
+    src: url(../fonts/MetricWeb-Regular.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Regular.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face{
+    font-family: 'MetricWeb_semibold';
+    src: url(../fonts/MetricWeb-Semibold.eot);
+    src: url(../fonts/MetricWeb-Semibold.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Semibold.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MetricWeb_thin';
+    src: url(../fonts/MetricWeb-Thin.eot);
+    src: url(../fonts/MetricWeb-Thin.eot?#iefix) format('embedded-opentype'),
+
+    url('../fonts/MetricWeb-Thin.woff') format('woff') ;
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.m_b50{ margin-bottom:50px}
+.s50{font-size:50px; line-height:52px}
+.p_t70{ padding-top:70px}
+.m_b30{ margin-bottom:30px}
+.upper{ text-transform:uppercase;}
+.m_b5{ margin-bottom:5px}
+.s38{font-size:38px;line-height: 1;}
+.s70m {
+    font-size: 50px;
+    line-height: 52px
+}
+.s65m {
+    font-size: 45px;
+    line-height: 47px
+}
+.s60m {
+    font-size: 35px;
+    line-height: 42px
+}
+.s55m {
+    font-size: 45px;
+    line-height: 44px
+}
+.s50m {
+    font-size: 35px;
+    line-height: 35px
+}
+.s45m {
+    font-size: 35px;
+    line-height: 37px
+}
+.s40m {
+    font-size: 30px;
+    line-height: 32px
+}
+.s70 {
+    font-size: 70px;
+    line-height: 72px
+}
+.s65 {
+    font-size: 65px;
+    line-height: 67px
+}
+.s60 {
+    font-size: 60px;
+    line-height: 62px
+}
+.s55 {
+    font-size: 55px;
+    line-height: 54px
+}
+.s50 {
+    font-size: 50px;
+    line-height: 52px
+}
+.s45 {
+    font-size: 45px;
+    line-height: 47px
+}
+.s44 {
+    font-size: 44px;
+    line-height: 46px
+}
+.s42 {
+    font-size: 42px;
+    line-height: 44px
+}
+.s40 {
+    font-size: 40px;
+    line-height: 42px
+}
+.s38 {
+    font-size: 38px;
+    line-height: 1;
+}
+.s36 {
+    font-size: 36px;
+    line-height: 38px
+}
+.s35 {
+    font-size: 35px;
+    line-height: 37px
+}
+.s34 {
+    font-size: 34px;
+    line-height: 36px
+}
+.s32 {
+    font-size: 32px;
+    line-height: 34px
+}
+.s30 {
+    font-size: 30px;
+    line-height: 32px
+}
+.s28 {
+    font-size: 28px;
+    line-height: 30px
+}
+.s26 {
+    font-size: 26px;
+    line-height: 28px
+}
+.s24 {
+    font-size: 24px;
+    line-height: 26px
+}
+.s22 {
+    font-size: 22px;
+    line-height: 24px
+}
+.s20 {
+    font-size: 20px;
+    line-height: 22px
+}
+.s18 {
+    font-size: 18px;
+    line-height: 20px
+}
+.s16 {
+    font-size: 16px;
+    line-height: 18px
+}
+.s15 {
+    font-size: 15px;
+    line-height: 17px
+}
+.s14 {
+    font-size: 14px;
+    line-height: 16px
+}
+.s12 {
+    font-size: 12px;
+    line-height: 14px
+}
+.s10 {
+    font-size: 10px;
+    line-height: 11px
+}
+/* para modales mor */
+
+.modal-backdrop{opacity: 0.95 !important; z-index: 10000}
+
+.modal_hpe{ font-family: MetricWeb_regular, Arial; font-size: 14px; line-height: 1.2; border-radius: 0px;
+    padding: 0 15px 10px;
+    color: rgba(0,0,0,1.00); box-shadow: none; }
+
+.modal{z-index: 20000 }
+
+@media (min-width: 992px){
+    #welcome_2019_intro .modal-lg, #welcome_2019 .modal-lg {
+        max-width: 1280px;    width: 100%; padding-left: 30px; padding-right: 30px;
+    }
+}
+.modal_hpe .modal-body{ padding-top: 0px}
+
+.modal_hpe.modal_default_hpe .modal-body{ padding-top: 15px; }
+
+
+.modal_w19_intro{  padding: 0 30px 30px;  }
+
+
+
+.modal_w19_intro .modal-header{ background-color: transparent}
+
+
+.modal_w19_intro .modal-header .close{position: absolute; margin: 0; right: 8px; top:-35px}
+
+
+.modal_w19_intro .modal-body{background-image: url("../images/modal/bg_2019.jpg"); background-size: cover; background-position: center; padding: 20px; font-size: 19px; line-height: 1; font-family: 'MetricWeb_medium'; color: rgba(255,255,255,1.00) }
+
+
+.error_bg {
+    height: 100vh;
+    /*padding: 145px 15px 165px;*/
+    background-image: url(../images/generic.jpg);
+    background-position: center bottom;
+    background-attachment: fixed;
+}
+
+.s160m{font-size: 60px}
