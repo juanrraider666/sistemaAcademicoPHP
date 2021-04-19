@@ -626,9 +626,9 @@
                         </li>
                         <li class="app-sidebar__heading">Forms</li>
                         <li>
-                            <a href="forms-controls.html">
+                            <a href="gestion_academica.php">
                                 <i class="metismenu-icon pe-7s-mouse">
-                                </i>Forms Controls
+                                </i>Gestion Academica
                             </a>
                         </li>
                         <li>
