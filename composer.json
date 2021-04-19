@@ -2,7 +2,14 @@
     "name": "jdiaz/sistema-academico-php",
     "description": "sistema academico con php",
     "require": {
-        "swiftmailer/swiftmailer": "^6.2"
+        "swiftmailer/swiftmailer": "^6.2",
+      "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "Pa\\": "pages"
+        }
     },
     "authors": [
         {

@@ -3,7 +3,7 @@ require_once("routes.php");
 
 class parameters
 {
-    const NAME_PROJECT = "sistemaAcademico";
+    const NAME_PROJECT = "sistemaAcademicoPHP";
 
 }
 
@@ -25,5 +25,5 @@ $arrDB = ["_DEFAULT" => [
     "host" => "localhost",
     "user" => "root",
     "pass" => "",
-    "db" => "sisstema_academico"
+    "db" => "sistema_academico"
 ]];

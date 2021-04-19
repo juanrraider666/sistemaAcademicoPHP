@@ -24,5 +24,5 @@ $objUser = new User();
 $resultUpdate = $objUser->saveMultiId($data, '', '', '', $ids);
 
 $CORE_session->destroyAll();
-header("location: " . DOMAIN_ROOT . "pages/login.php");
+header("location: " . DOMAIN_ROOT . "login.php");
 exit;

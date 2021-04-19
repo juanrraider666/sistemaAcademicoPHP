@@ -31,12 +31,14 @@ class Application extends QueryService
 
         $params = [
             'status' => $status,
-            'profile' => $profile,
+            'profile' => (int)$profile,
             'name' => $name,
         ];
-
+        var_dump($query);
+        var_dump($params);
         $result =  $this->findAllBySQL($query, $params);
-
+        var_dump($result);
+        die();
         if(count($result)){
             return true;
         }

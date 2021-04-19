@@ -158,7 +158,6 @@ class QueryService extends dbConection
 
             $queryTrim = trim($query);
             $conn = $this->getConnection($app);
-
             if ($conn) {
                 switch ($type) {
                     case 'SELECT':
@@ -222,7 +221,7 @@ class QueryService extends dbConection
             $pdoQuery->execute($params);
 
             if ($single) {
-                $return = $pdoQuery->fetch(PDO::FETCH_ASSOC);;
+                $return = $pdoQuery->fetch(PDO::FETCH_ASSOC);
             } else {
                 $return = $pdoQuery->fetchAll(PDO::FETCH_ASSOC);
             }

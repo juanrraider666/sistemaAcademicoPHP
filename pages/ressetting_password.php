@@ -34,7 +34,7 @@ if ($_GET['ac'] === 'resetPassword') {
                     </div>
                     <div class="row flex-row align-items-center py-3">
                         <div class="col-sm-6 py-3 text-center text-sm-left">
-                            <a type="button"  href="login.php" class="btn btn-primary">Cancel</a>
+                            <a type="button" href="../login.php" class="btn btn-primary">Cancel</a>
                         </div>
                         <div class="col-sm-6 py-3 text-center text-sm-left">
                             <button type="submit" class="btn btn-primary">Next</button>

@@ -38,6 +38,7 @@ dbConection::assignDBParameters($arrDB);
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script src="<?=DOMAIN_ROOT ?>assets/js/main.js"></script>
 <script src="<?=DOMAIN_ROOT ?>assets/js/app.js"></script>
 
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">

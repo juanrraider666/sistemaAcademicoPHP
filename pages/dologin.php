@@ -22,7 +22,7 @@ if(isset($_GET['ac'])) {
     switch($action){
         case 'success':
             $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
-            header("location: ../index.php");
+            header("location: ../pages/index.php");
             exit();
         case 'noregistrado':
             $CORE_session->write('email', $login);
@@ -30,7 +30,7 @@ if(isset($_GET['ac'])) {
             exit();
         case 'conectado':
             $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
-            header("location: ../index.php");
+            header("location: ../pages/index.php");
             exit();
         default:
             $msg = ($action) ? '?msg='.$action : '';

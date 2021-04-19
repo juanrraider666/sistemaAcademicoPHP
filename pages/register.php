@@ -179,7 +179,7 @@ if(isset($_GET['register']))
                   buttons: ['Seguir registrando',"ir a login"],
               }).then((willDoLogin) => {
                   if (willDoLogin) {
-                      return window.location.href = "http://localhost/laUltimaYnosVamosPHP/pages/login.php";
+                      return window.location.href = "../login.php";
                   }
               });
           </script>
