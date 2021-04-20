@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 
@@ -475,14 +473,14 @@ require_once '../pages/helpers.php';
                 <div class="row">
                     <div class="col-md-12">
                         <div class="main-card mb-3 card">
-                            <div class="card-header">Carreras
+                            <div class="card-header">Ingenieria Software
                             </div>
                             <div class="table-responsive">
                                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Carrera</th>
-                                        <th class="text-center">Stado</th>
+                                        <th>Grupo</th>
+                                        <th class="text-center">Estado</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -493,7 +491,7 @@ require_once '../pages/helpers.php';
                                                 <div class="widget-content-wrapper">
 
                                                     <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">Ingenieria Software</div>
+                                                        <div class="widget-heading">Grupo 800</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -502,7 +500,7 @@ require_once '../pages/helpers.php';
                                             <div class="badge badge-warning">Activa</div>
                                         </td>
                                         <td class="text-center">
-                                            <a href="gestion_de_grupos.php" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Gestionar</a>
+                                        <a href="gestion_materias.php" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Gestionar</a>
                                         </td>
                                     </tr>
 
