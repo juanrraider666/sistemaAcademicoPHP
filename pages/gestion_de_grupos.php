@@ -1,3 +1,9 @@
+<?php
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -10,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
+
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -20,7 +27,6 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="../assets/css/main.css" rel="stylesheet">
     <?php
 
 require __DIR__ . "./../vendor/autoload.php";
@@ -31,6 +37,26 @@ require_once '../pages/session_manager.class.php';
 require_once '../pages/access.class.php';
 require_once '../src/Core/session.php';
 require_once '../pages/helpers.php';
+
+    $controller = new \App\Controllers\GroupController();
+
+
+    if(isset($_GET['create'])) {
+
+        $params = [
+         "name" =>  $_POST['name'],
+         "code" =>  $_POST['code'],
+         "program" => $_POST['program']
+        ];
+
+        $controller->createAction($params);
+
+       header('location: gestion_de_grupos.php');exit();
+    }
+
+    $list = $controller->listAction();
+    $programs = $controller->listProgram();
+
 
 ?>
 
@@ -462,10 +488,21 @@ require_once '../pages/helpers.php';
                                 <i class="pe-7s-car icon-gradient bg-mean-fruit">
                                 </i>
                             </div>
-                            <div>Gestion Academica
+                            <div>
+                                Gestion Academica
                                 <div class="page-title-subheading">Pagina para la gestion academica de las carreras
                                 </div>
                             </div>
+                        </div>
+
+
+                        <div class="page-title-actions">
+<!--                            <a href="gestion_de_grupos.php"  id="create_user_btn"  class="btn btn-primary btn-add btn-blue btn-blue " title="Agregar">Agregar</a>-->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                               Crear Grupo
+                            </button>
+
                         </div>
                         </div>
                 </div>
@@ -476,7 +513,7 @@ require_once '../pages/helpers.php';
                             <div class="card-header">Ingenieria Software
                             </div>
                             <div class="table-responsive">
-                                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                <table class="group-list align-middle mb-0 table table-borderless table-striped table-hover">
                                     <thead>
                                     <tr>
                                         <th>Grupo</th>
@@ -485,13 +522,14 @@ require_once '../pages/helpers.php';
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($list as $group): ?>
                                     <tr>
                                         <td>
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-wrapper">
 
                                                     <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">Grupo 800</div>
+                                                        <div class="widget-heading"><?php echo $group['name'] ?></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -500,10 +538,10 @@ require_once '../pages/helpers.php';
                                             <div class="badge badge-warning">Activa</div>
                                         </td>
                                         <td class="text-center">
-                                        <a href="gestion_materias.php" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Gestionar</a>
+                                        <a href="gestion_materias.php?group=<?php echo $group['id'] ?>&name=<?php echo $group['name'] ?>" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Gestionar</a>
                                         </td>
                                     </tr>
-
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -548,9 +586,387 @@ require_once '../pages/helpers.php';
                         </div>
                     </div>
                 </div>
-            </div>    </div>
+            </div>
+               <?php require_once('modal.php') ?>
+            </div>
+
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </div>
 </div>
-<script type="text/javascript" src="../assets/js/main.js"></script></body>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Creacion de grupo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate action="gestion_de_grupos.php?create=group" method="post">
+                        <div class="form-row">
+                            <div class="col-md-2 mb-3">
+                                <label for="validationCustom01">Nombre</label>
+                                <input type="text" name="code" class="form-control" id="validationCustom01" placeholder="Nombre"  required="">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom02">Codigo</label>
+                                <input type="text" name="name" class="form-control" id="validationCustom02" placeholder="Codigo"  required="">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group content_checkbox">
+                                    <label for="" class="white_txt">Company</label>
+                                    <select multiple="multiple" name="program" class="form-control company_select mult_hpe_select " >
+                                        <?php foreach($programs as $program) :?>
+                                        <option value="<?php echo $program['id'] ?>"><?php echo $program['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../assets/js/main.js"></script>
+    <script>
+        (function ($, window, document) {
+
+            $(function () {
+                userAdmin = new LoyaltyUsersAdmin('gestion_de_groups.php');
+                userAdmin.handleEvents();
+            });
+
+        })(jQuery, window, document);
+
+        function LoyaltyUsersAdmin(pageUrl, selectors) {
+            this.pageUrl = decodeURIComponent(pageUrl);
+            console.log('asd')
+            this.selectors = $.extend({
+                table: 'table.group-list',
+                team_table: 'table.teams-list',
+                team_table_container: '.team-table-container',
+                table_container: '.user-table-container',
+                modal_show: '#modal-user-show',
+                modal_show_content: '.user-show-content',
+                modal_form: '#modal-user-form',
+                modal_form_content: '.user-form-content',
+                modal_confirm: '#modal-confirm',
+                modal_confirm_content: '.confirm-content',
+                modal_confirm_header: '.confirm-header',
+                team_member_form_container: '.member-form-container',
+                ajax_form_container: '.ajax-form-container',
+                parent_container: '.parent-container',
+                modal_submits: '.modal-footer :button',
+                form_submits: 'form :submit',
+                form_errors: '.form-errors',
+                btn_confirm: '.modal-confirm',
+                btn_show_ajax_element: '.element-ajax-show',
+                btn_show: '.show-user',
+                btn_edit: '.edit-user',
+                btn_ajax_edit: '.ajax-edit-user',
+                btn_create: '#create_user_btn',
+                btn_create_team_member: '#create_team_member_btn',
+                modal_preview: '#modal-preview',
+                modal_preview_content: '.preview-content',
+                modal_preview_header: '.preview-header',
+                btn_preview: '.modal-preview',
+                ajax_pagination_container: '.ajax-pagination',
+                pagination_container: '.pagination-container',
+                records_table: '.record-table',
+                members_container: '#members-container',
+                modal_account_confirm: '#modal-account-confirm',
+                modal_account_confirm_content: '.account-confirm-content',
+                btn_account_confirm: '.modal-account-confirm'
+            }, selectors);
+        }
+        LoyaltyUsersAdmin.prototype.refreshUserList = function () {
+            var self = this;
+            console.log('enmtra')
+            $.get(window.location.href).done($.proxy(function (html) {
+                $(self.selectors.table).html($(html).find(self.selectors.table).html());
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showUserInfo = function (url) {
+            $(this.selectors.modal_show_content, this.selectors.modal_show).load(url, $.proxy(function () {
+                $(this.selectors.modal_show).modal('show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showUserForm = function (url) {
+            console.log('asd')
+            console.log(url)
+            $(this.selectors.modal_form_content, this.selectors.modal_form).load(url, $.proxy(function () {
+                $(this.selectors.modal_form).modal('show');
+                $(document).trigger('loyalty.admin.user.form.show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showMemberEditForm = function (element) {
+            var target = $(element).data('target');
+            var url = $(element).attr('href');
+            var trElement = $("tr[data-member='user-" + target +"']");
+
+            $(this.selectors.members_container).find('tr[data-member]').hide();
+
+            trElement.find('td').load(url, $.proxy(function () {
+                trElement.removeClass('hide');
+                trElement.show();
+                $(document).trigger('loyalty.admin.user.form.show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showTeamMemberForm = function (url) {
+            $(this.selectors.team_member_form_container).load(url, $.proxy(function () {
+                $(this.selectors.team_member_form_container).show();
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showHiddenAjaxTargetElement = function (clickElement,target) {
+            console.log('showHiddenAjaxTargetElement')
+            var url = $(clickElement).attr('href');
+            $.post(url)
+                .done(function (html) {
+                    $(target).html(html);
+                    if($(target).hasClass('hide')) $(target).removeClass('hide');
+                    $(target).show();
+                });
+        };
+
+        LoyaltyUsersAdmin.prototype.showConfirm = function (url, header) {
+            $(this.selectors.modal_confirm_header, this.selectors.modal_confirm).html(header);
+            $(this.selectors.modal_confirm_content, this.selectors.modal_confirm).load(url, $.proxy(function () {
+                $(this.selectors.modal_confirm).modal('show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.showPreview = function (url, header) {
+            $(this.selectors.modal_preview_header, this.selectors.modal_preview).html(header);
+            $(this.selectors.modal_preview_content, this.selectors.modal_preview).load(url, $.proxy(function () {
+                $(this.selectors.modal_preview).modal('show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype.enableSubmits = function () {
+            $([this.selectors.modal_submits, this.selectors.form_submits].join(',')).button('reset');
+        };
+
+        LoyaltyUsersAdmin.prototype.disableSubmits = function () {
+            $([this.selectors.modal_submits, this.selectors.form_submits].join(',')).button('loading');
+        };
+
+        LoyaltyUsersAdmin.prototype.prepareModalForm = function () {
+            var $modal = $(this.selectors.modal_form);
+            $modal.find('form :input:first').focus();
+            $modal.find(this.selectors.form_errors).html('');
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickBtnToConfirm = function (e) {
+            e.preventDefault();
+            var $el = $(e.currentTarget);
+            this.showConfirm(e.currentTarget.href, $el.data('header'));
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickBtnToPreview = function (e) {
+            e.preventDefault();
+            var $el = $(e.currentTarget);
+            this.showPreview(e.currentTarget.href, $el.data('header'));
+        };
+
+        LoyaltyUsersAdmin.prototype._onSubmitModalConfirm = function (e) {
+            e.preventDefault();
+            var $form = $(e.currentTarget);
+            $.post($form.attr('action'), $form.serialize()).done(function () {
+                $(document).trigger('refresh-user-list').trigger('ajax.close_modal');
+            });
+        };
+
+        LoyaltyUsersAdmin.prototype._onSubmitAccountConfirmForm = function (e) {
+            e.preventDefault();
+            var $form = $(e.currentTarget);
+            $.post(e.currentTarget.action, $form.serialize())
+                .done(function (html) {
+                    $(document).trigger('refresh-user-list').trigger('ajax.close_modal');
+                }).fail(function (xhr) {
+                if (xhr.status == 400) {
+                    $form.replaceWith($(xhr.responseText).find('form'));
+                }
+            });
+        };
+
+        LoyaltyUsersAdmin.prototype.showAccountConfirmForm = function (url) {
+            $(this.selectors.modal_account_confirm_content, this.selectors.modal_account_confirm).load(url, $.proxy(function () {
+                $(this.selectors.modal_account_confirm).modal('show');
+            }, this));
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowAccountConfirmForm = function (e) {
+            e.preventDefault();
+            this.showAccountConfirmForm(e.currentTarget.href);
+        };
+
+        LoyaltyUsersAdmin.prototype._onSubmitModalPreview = function (e) {
+            e.preventDefault();
+            var $form = $(e.currentTarget);
+            $.post($form.attr('action'), $form.serialize()).done(function () {
+                $(document).trigger('refresh-user-list').trigger('ajax.close_modal');
+            });
+        };
+
+        LoyaltyUsersAdmin.prototype._onCloseModalConfirm = function (e) {
+            e.preventDefault();
+            $(this.selectors.modal_confirm).modal('hide');
+        };
+
+        LoyaltyUsersAdmin.prototype._onCloseModalPreview = function (e) {
+            e.preventDefault();
+            $(this.selectors.modal_preview).modal('hide');
+        };
+
+        LoyaltyUsersAdmin.prototype._onCloseModalForm = function (e) {
+            e.preventDefault();
+            $(this.selectors.modal_form).modal('hide');
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowInfo = function (e) {
+            e.preventDefault();
+            this.showUserForm(e.currentTarget.href);
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowForm = function (e) {
+            e.preventDefault();
+            this.showUserForm(e.currentTarget.href);
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowNonModalForm = function (e) {
+            e.preventDefault();
+            this.showUserForm(e.currentTarget.href);
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowMemberEditForm = function (e) {
+            e.preventDefault();
+            this.showMemberEditForm(e.currentTarget);
+        };
+
+        LoyaltyUsersAdmin.prototype._onClickShowTargetAjaxElement = function (e) {
+            e.preventDefault();
+            this.showHiddenAjaxTargetElement($(e.currentTarget),$(e.currentTarget).data('target'));
+        };
+
+        LoyaltyUsersAdmin.prototype._onShownModalForm = function () {
+            this.prepareModalForm();
+        };
+
+
+        LoyaltyUsersAdmin.prototype._onSubmitForm = function (e) {
+            e.preventDefault();
+            console.log('xhr')
+            var $form = $(e.currentTarget);
+            $.post(e.currentTarget.action, $form.serialize())
+                .done(function (html) {
+                    console.log($(document).trigger('user-edited'))
+                    console.log($(document).trigger('user-edited'))
+                    $(document).trigger('user-edited').trigger('ajax.close_modal');
+                }).fail(function (xhr) {
+                console.log(xhr)
+                console.log(xhr.responseText)
+                console.log($(xhr.responseText).find('form'))
+                console.log($form)
+                if (xhr.status == 400) {
+                    $form.replaceWith($(xhr.responseText).find('form'));
+                }
+            });
+        };
+
+        LoyaltyUsersAdmin.prototype._onSubmitMemberForm = function (e) {
+            e.preventDefault();
+            var self = this;
+            var $form = $(e.currentTarget);
+
+            $.post(e.currentTarget.action, $form.serialize())
+                .done(function (html) {
+                    $($form)[0].reset();
+                    $form.closest(self.selectors.parent_container).hide();
+                    $(document).trigger('user-edited');
+                }).fail(function (xhr) {
+                if (xhr.status == 400) {
+                    $($form).replaceWith($(xhr.responseText));
+                }
+            });
+        };
+
+        LoyaltyUsersAdmin.prototype.handleEvents = function () {
+
+            $(document)
+                .on('user-edited users-imported refresh-user-list', $.proxy(this.refreshUserList, this))
+                .ajaxStart($.proxy(this.disableSubmits, this))
+                .ajaxStop($.proxy(this.enableSubmits, this))
+            ;
+
+            $(this.selectors.table_container)
+                .on('click', this.selectors.btn_confirm, $.proxy(this._onClickBtnToConfirm, this))
+                .on('click', this.selectors.btn_show, $.proxy(this._onClickShowInfo, this))
+                .on('click', this.selectors.btn_edit, $.proxy(this._onClickShowForm, this))
+                .on('click', this.selectors.btn_ajax_edit, $.proxy(this._onClickShowMemberEditForm, this))
+                .on('click', this.selectors.btn_preview, $.proxy(this._onClickBtnToPreview, this))
+            ;
+
+            $(this.selectors.team_table_container)
+                .on('click', this.selectors.btn_confirm, $.proxy(this._onClickBtnToConfirm, this))
+            ;
+
+            $(this.selectors.btn_create)
+                .on('click', $.proxy(this._onClickShowForm, this));
+
+            $(this.selectors.btn_show_ajax_element)
+                .on('click', $.proxy(this._onClickShowTargetAjaxElement, this));
+
+            $(this.selectors.modal_confirm)
+                .on('submit', 'form', $.proxy(this._onSubmitModalConfirm, this))
+                .on('click', '.link-no, .btn-no', $.proxy(this._onCloseModalConfirm, this));
+
+            $(this.selectors.modal_preview)
+                .on('submit', 'form', $.proxy(this._onSubmitModalPreview, this))
+                .on('click', '.link-no, .btn-no', $.proxy(this._onCloseModalPreview, this));
+
+            $(this.selectors.ajax_form_container).on('submit', 'form', $.proxy(this._onSubmitMemberForm, this))
+                .attr('novalidate', 'novalidate')
+            ;
+
+            $(this.selectors.modal_form)
+                .on('click', '.btn-back', $.proxy(this._onCloseModalForm, this))
+                .on('shown.bs.modal', $.proxy(this._onShownModalForm, this))
+                .on('submit', 'form', $.proxy(this._onSubmitForm, this))
+                .attr('novalidate', 'novalidate')
+            ;
+
+            $(this.selectors.table_container)
+                .on('click', this.selectors.btn_account_confirm, $.proxy(this._onClickShowAccountConfirmForm, this))
+            ;
+
+            $(this.selectors.modal_account_confirm)
+                .on('submit', 'form', $.proxy(this._onSubmitAccountConfirmForm, this))
+                .on('click', '.link-no, btn-no', $.proxy(this._onCloseModalAccountConfirmForm, this))
+            ;
+
+        };
+    </script>
+
+</body>
 </html>

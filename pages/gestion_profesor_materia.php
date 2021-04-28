@@ -21,44 +21,35 @@
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
     <link href="../assets/css/main.css" rel="stylesheet">
-<?php
+    <?php
 
-require __DIR__ . "./../vendor/autoload.php";
+    require __DIR__ . "./../vendor/autoload.php";
 
-require_once '../base.php';
+    require_once '../base.php';
 
-require_once '../pages/session_manager.class.php';
-require_once '../pages/access.class.php';
-require_once '../src/Core/session.php';
-require_once '../pages/helpers.php';
+    require_once '../pages/session_manager.class.php';
+    require_once '../pages/access.class.php';
+    require_once '../src/Core/session.php';
+    require_once '../pages/helpers.php';
 
-if(isset($_GET['group']) || $isCreate = isset($_GET['create']))
-{
 
-    if($isCreate){
-        $cour = new \App\Controllers\CourseController();
-        $cour->assosiateGroup($_GET['create'], $_POST['course']);
-
-    }
 
     $courses = new \App\Repository\CourseRepository();
-    $query = "
-        SELECT c.id, c.name FROM program_group pc
-        lEFT JOIN program_group_course pgc ON pc.id = pgc.program_group_id
-        LEFT JOIN teacher_course tc ON pgc.teacher_course_id  = tc.id
-        LEFT JOIN course c ON c.id = tc.course_id
-        WHERE pc.group_id = :group_id
-        ";
-
-      $list =  $courses->_SQL_tool('SELECT',__METHOD__, $query, '', 1, '', '_DEFAULT', ['group_id' => $_GET['group']] );
-
     $courses = $courses->getAll();
 
-}
+    $repoUser = new \App\Repository\UserRepository();
+    $users = $repoUser->getUserTeacherProfile();
 
 
+    if(isset($_GET['create'])){
+        $teacherCourse = new \App\Entity\TeacherCourse();
+        $teacherCourse->save([
+            'teacher_id' => $_POST['teacher'],
+            'course_id' => $_POST['course'],
+        ]);
 
-?>
+    }
+    ?>
 
 </head>
 
@@ -471,9 +462,9 @@ if(isset($_GET['group']) || $isCreate = isset($_GET['create']))
                             </a>
                         </li>
                         <li>
-                            <a href="gestion_profesor_materia.php">
+                            <a href="forms-validation.html">
                                 <i class="metismenu-icon pe-7s-pendrive">
-                                </i>Profesor materia
+                                </i>Forms Validation
                             </a>
                         </li>
                     </ul>
@@ -499,98 +490,86 @@ if(isset($_GET['group']) || $isCreate = isset($_GET['create']))
                             </button>
 
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="main-card mb-3 card">
-                            <div class="card-header">Grupo <?php echo($_GET['name']); ?>
-                            </div>
-                            <?php if (count($list)) : ?>
-                            <div class="table-responsive">
-                                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Materia</th>
-                                        <th class="text-center">Estado</th>
-                                        <th class="text-center">Accion</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php foreach($list as $course) : ?>
-                                    <tr>
-                                        <td>
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-
-                                                    <div class="widget-content-left flex2">
-                                                        <div class="widget-heading"><?php echo $course['name']?></div>
-                                                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body"><h5 class="card-title">Grid Rows</h5>
+                                    <form class="" action="gestion_profesor_materia.php?create=new" method="post">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group content_checkbox">
+                                                    <label for="" class="white_txt">Profesores</label>
+                                                    <select multiple="multiple" name="teacher" class="form-control company_select mult_hpe_select " >
+                                                        <?php foreach($users as $teacher) :?>
+                                                            <option value="<?php echo $teacher['id'] ?>"><?php echo $teacher['last_name'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="badge badge-warning">Activa</div>
-                                        </td>
-                                        <td class="text-center">
-                                        <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Ver detalles</button>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach;?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <?php else: ?>
-                                <div> Este grupo no tiene materias asignadas</div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="app-wrapper-footer">
-                <div class="app-footer">
-                    <div class="app-footer__inner">
-                        <div class="app-footer-left">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        Footer Link 1
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        Footer Link 2
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="app-footer-right">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        Footer Link 3
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <div class="badge badge-success mr-1 ml-0">
-                                            <small>NEW</small>
+                                            <div class="col-md-6">
+                                                <div class="form-group content_checkbox">
+                                                    <label for="" class="white_txt">Materias</label>
+                                                    <select multiple="multiple" name="course" class="form-control company_select mult_hpe_select " >
+                                                        <?php foreach($courses as $course) :?>
+                                                            <option value="<?php echo $course['id'] ?>"><?php echo $course['name'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                         </div>
-                                        Footer Link 4
-                                    </a>
-                                </li>
-                            </ul>
+
+
+                                            <button class="btn btn-primary" type="submit">Guardar</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </div>    </div>
+                <div class="app-wrapper-footer">
+                    <div class="app-footer">
+                        <div class="app-footer__inner">
+                            <div class="app-footer-left">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">
+                                            Footer Link 1
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">
+                                            Footer Link 2
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="app-footer-right">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">
+                                            Footer Link 3
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="nav-link">
+                                            <div class="badge badge-success mr-1 ml-0">
+                                                <small>NEW</small>
+                                            </div>
+                                            Footer Link 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>    </div>
 
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        </div>
     </div>
-</div>
     <!-- Modal -->
     <div class="modal fade" id="newCourseModal" tabindex="-1" role="dialog" aria-labelledby="newCourseModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -623,5 +602,5 @@ if(isset($_GET['group']) || $isCreate = isset($_GET['create']))
             </div>
         </div>
     </div>
-<script type="text/javascript" src="../assets/js/main.js"></script></body>
+    <script type="text/javascript" src="../assets/js/main.js"></script></body>
 </html>

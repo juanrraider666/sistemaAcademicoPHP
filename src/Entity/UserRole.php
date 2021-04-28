@@ -10,6 +10,7 @@ class UserRole extends QueryService
 {
     const ROLE_CLIENT = 1;
     const ROLE_USER = 2;
+    const ROLE_TEACHER = 4;
 
     var $table = 'user_role';
 

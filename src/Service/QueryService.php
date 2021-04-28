@@ -190,7 +190,8 @@ class QueryService extends dbConection
     private function executeIUD($conn, $query, $params, $type, $comment, $function_call)
     {
         try {
-
+            var_dump($query);
+            var_dump($params);
             $pdoQuery = $conn->prepare($query);
             $result = $pdoQuery->execute($params);
             $return_value = true;
@@ -216,6 +217,7 @@ class QueryService extends dbConection
     private function executeSelect($conn, $query, $params, $single = false)
     {
         try {
+            var_dump($query);
 
             $pdoQuery = $conn->prepare($query);
             $pdoQuery->execute($params);

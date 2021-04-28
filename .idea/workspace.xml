@@ -2,37 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf67571-7cac-4e5e-b2c7-767574f51752" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/new-styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/bg_login--five.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/bg_login--four.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/bg_login--one.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/bg_login--three.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/bg_login--two.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/lenovo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login/lenovo_comunity--white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/gestion_profesor_materia.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/modal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/CourseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/GroupController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Course.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Group.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/ProgramGroup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/ProgramGroupTeacher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/TeacherCourse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/CourseRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/GroupRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ProgramGroupRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ProgramRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/TeacherCourseRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/html/banners/10292020_promo_one.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/html/banners/10292020_promo_one.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/html/banners/10292020_promo_two.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/html/banners/10292020_promo_two.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/parameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/parameters.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dologin.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dologin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ressetting_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ressetting_password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/gestion_de_grupos.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/gestion_de_grupos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/gestion_materias.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/gestion_materias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/UserRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserRole.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/QueryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/QueryService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +63,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fortinet-boletin-heatmap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,6 +72,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -87,6 +83,7 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\sistemaAcademicoPHP\assets\js" />
+      <recent name="C:\wamp64\www\sistemaAcademicoPHP" />
       <recent name="C:\wamp64\www\sistemaAcademicoPHP\assets\css" />
     </key>
   </component>
@@ -102,6 +99,15 @@
       <workItem from="1618686816757" duration="6686000" />
       <workItem from="1618775233408" duration="5506000" />
       <workItem from="1618842141635" duration="598000" />
+      <workItem from="1618855169225" duration="1487000" />
+      <workItem from="1618926085472" duration="572000" />
+      <workItem from="1619013187585" duration="525000" />
+      <workItem from="1619100445644" duration="564000" />
+      <workItem from="1619184920206" duration="575000" />
+      <workItem from="1619274173458" duration="542000" />
+      <workItem from="1619363283676" duration="21145000" />
+      <workItem from="1619444427059" duration="1959000" />
+      <workItem from="1619533926766" duration="2740000" />
     </task>
     <servers />
   </component>
@@ -109,13 +115,33 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2657" y="197" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619381257221">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2657" y="197" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619381257220" />
+    <state x="2610" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619393433945">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2610" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619393433945" />
     <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1618845139554">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618845139554" />
-    <state x="2588" y="257" width="583" height="526" key="find.popup" timestamp="1618688198007">
+    <state x="2645" y="247" key="NewPhpClassDialog" timestamp="1619487417968">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2588" y="257" width="583" height="526" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618688198007" />
+    <state x="2645" y="247" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619487417968" />
+    <state x="2714" y="444" key="NewPhpFileDialog" timestamp="1619487411177">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2714" y="444" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619487411177" />
+    <state x="2588" y="257" width="583" height="526" key="find.popup" timestamp="1619383227514">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2588" y="257" width="583" height="526" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619383227514" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1619566934071">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619566934071" />
   </component>
 </project>
